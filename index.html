@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07111f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Projeto -12,25 kg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@300;400;500;700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06101d; --panel:#0b1728; --panel2:#101e31; --text:#f5f8fc; --muted:#8fa1b7;
+  --line:rgba(255,255,255,.09); --blue:#2f8cff; --cyan:#36d9ff; --violet:#8b5cf6;
+  --pink:#f05cff; --green:#45e0a2; --shadow:0 18px 50px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg)}
+body{margin:0;background:
+ radial-gradient(circle at 90% -5%,rgba(47,140,255,.25),transparent 34%),
+ radial-gradient(circle at -10% 35%,rgba(139,92,246,.15),transparent 30%),
+ var(--bg);color:var(--text);font-family:"Lato","Roboto",Arial,sans-serif}
+button{font:inherit;color:inherit}
+.app{width:min(100%,720px);margin:auto;padding:env(safe-area-inset-top) 16px calc(34px + env(safe-area-inset-bottom))}
+.hero{position:relative;overflow:hidden;margin:10px 0 16px;padding:24px 20px 20px;border:1px solid var(--line);border-radius:30px;background:
+ linear-gradient(135deg,rgba(16,31,51,.96),rgba(7,16,29,.93)),
+ url("https://s2-techtudo.glbimg.com/f9D2Nr2nPAm8pT6ew-F4PqnQl0o=/0x0:695x595/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2024/P/w/TBuAi8Riey6ChrzkMbXA/3.jpg");
+background-size:cover;background-position:center;box-shadow:var(--shadow)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(5,13,24,.97) 0%,rgba(5,13,24,.78) 54%,rgba(5,13,24,.32));pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.eyebrow{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#8edcff;font-weight:800}
+h1{font-family:"Ubuntu",sans-serif;font-weight:300;font-size:32px;line-height:1.02;letter-spacing:-.04em;margin:8px 0 8px}
+.hero p{font-family:"Roboto",sans-serif;font-weight:300;margin:0;color:#c5d1df;max-width:470px;font-size:14px}
+.goal{display:flex;align-items:end;gap:10px;margin-top:20px}
+.goal strong{font-size:38px;letter-spacing:-.05em}
+.goal span{font-size:13px;color:#aebed1;padding-bottom:6px}
+.progress-wrap{margin-top:14px}
+.progress{height:10px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--violet),var(--pink));border-radius:inherit;transition:width .35s}
+.progress-meta{display:flex;justify-content:space-between;color:#aebed1;font-size:11px;margin-top:7px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0 18px}
+.stat{background:rgba(16,30,49,.8);border:1px solid var(--line);border-radius:20px;padding:14px 12px}
+.stat b{display:block;font-size:21px;letter-spacing:-.03em}.stat small{color:var(--muted);font-size:10px}
+.toolbar{display:flex;gap:8px;position:sticky;top:8px;z-index:5;margin-bottom:14px}
+.pill{flex:1;border:1px solid var(--line);background:rgba(10,23,40,.88);backdrop-filter:blur(18px);border-radius:15px;padding:11px 10px;font-size:12px;font-weight:750;text-align:center;cursor:pointer}
+.pill.active{background:#eaf5ff;color:#07111f;border-color:#eaf5ff}
+.month{margin:22px 0 12px;display:flex;align-items:center;justify-content:space-between}
+.month h2{margin:0;font-size:18px;letter-spacing:-.02em}.month span{color:var(--muted);font-size:11px}
+.day{margin:8px 0;border:1px solid var(--line);background:rgba(11,23,40,.76);border-radius:17px;padding:9px;box-shadow:0 8px 28px rgba(0,0,0,.12)}
+.dayhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.daytitle{display:flex;align-items:center;gap:9px}.datebox{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#173251,#0e2036);display:grid;place-items:center;font-weight:850}
+.daytitle b{font-size:12px}.daytitle small{display:block;color:var(--muted);font-size:9px;margin-top:1px}
+.daypct{font-size:11px;color:#b8c7d8;font-weight:750}
+.exercises{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.blob{position:relative;border:0;min-height:68px;border-radius:19px;padding:10px 8px;text-align:left;cursor:pointer;overflow:hidden;background:var(--panel2);border:1px solid rgba(255,255,255,.07)}
+.blob:before{content:"";position:absolute;width:55px;height:55px;border-radius:50%;right:-20px;top:-18px;background:var(--c);filter:blur(1px);opacity:.28}
+.blob .icon{font-size:15px;position:relative}.blob b,.blob small{display:block;position:relative}.blob b{font-size:9px;margin-top:4px}.blob small{font-size:8px;color:#a9b9ca;margin-top:3px}
+.blob.done{background:linear-gradient(145deg,rgba(69,224,162,.16),rgba(11,23,40,.9));border-color:rgba(69,224,162,.45)}
+.blob.done:after{content:"✓";position:absolute;right:8px;bottom:7px;width:17px;height:17px;border-radius:50%;background:var(--green);color:#042015;font-size:11px;font-weight:900;display:grid;place-items:center}
+.empty{padding:28px 10px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:22px}
+.legend{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:10px;margin:18px 2px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;background:var(--c)}
+.footer{text-align:center;color:#61748b;font-size:10px;padding:24px 0}
+@media (min-width:600px){.app{padding-left:24px;padding-right:24px}.exercises{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:390px){.app{padding-left:10px;padding-right:10px}.hero{border-radius:24px;padding:19px 15px}.goal strong{font-size:32px}.blob{min-height:64px;padding:7px 6px;border-radius:15px}.blob b{font-size:8.5px}.blob small{font-size:7.5px}}
+
+.save-overlay{
+  position:fixed;inset:0;z-index:999;display:grid;place-items:center;
+  padding:20px;background:rgba(2,8,16,.56);backdrop-filter:blur(9px);
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,visibility .18s ease;
+}
+.save-overlay.show{opacity:1;visibility:visible;pointer-events:auto}
+.save-box{
+  width:min(230px,82vw);padding:20px 16px;border-radius:20px;text-align:center;
+  background:rgba(12,27,45,.96);border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 20px 70px rgba(0,0,0,.42);
+}
+.spinner{
+  width:28px;height:28px;margin:0 auto 11px;border:3px solid rgba(255,255,255,.16);
+  border-top-color:#36d9ff;border-right-color:#8b5cf6;border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+.save-title{font-family:"Ubuntu",sans-serif;font-weight:400;font-size:16px}
+.save-subtitle{font-family:"Roboto",sans-serif;font-weight:300;font-size:10px;color:#8fa1b7;margin-top:4px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<main class="app">
+<section class="hero">
+  <div class="eyebrow">PROJETO • 22 OUT 2026 → 25 FEV 2027</div>
+  <h1>Foco. Movimento.<br>Constância.</h1>
+  <p>Três blocos diários para acompanhar sua rotina e a meta de perda de peso de forma visual.</p>
+  <div class="goal"><strong>-12,25 kg</strong><span>meta total</span></div>
+  <div class="progress-wrap">
+    <div class="progress"><i id="bar"></i></div>
+    <div class="progress-meta"><span id="doneText">0 de 381 sessões</span><span id="kgText">0,00 kg</span></div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat"><b id="daysDone">0</b><small>dias completos</small></div>
+  <div class="stat"><b id="minutes">0</b><small>minutos concluídos</small></div>
+  <div class="stat"><b id="streak">0</b><small>sequência atual</small></div>
+</section>
+
+<nav class="toolbar" aria-label="Filtros">
+  <button class="pill active" data-filter="all">Todos</button>
+  <button class="pill" data-filter="pending">Pendentes</button>
+  <button class="pill" data-filter="done">Concluídos</button>
+</nav>
+
+<section id="calendar"></section>
+<div class="legend">
+  <span><i class="dot" style="--c:#36d9ff"></i>Ergométrica</span>
+  <span><i class="dot" style="--c:#8b5cf6"></i>Esteira</span>
+  <span><i class="dot" style="--c:#f05cff"></i>Musculação</span>
+</div>
+
+<div id="saveOverlay" class="save-overlay" aria-hidden="true">
+  <div class="save-box">
+    <div class="spinner"></div>
+    <div class="save-title">Salvando</div>
+    <div class="save-subtitle">Atualizando seu progresso...</div>
+  </div>
+</div>
+<div class="footer">Toque em cada blob para marcar o treino. O progresso fica salvo neste iPhone.</div>
+</main>
+
+<script>
+const START = new Date('2026-10-22T00:00:00');
+const END   = new Date('2027-02-25T00:00:00');
+const KEY='projeto-1225kg-v1';
+const workouts=[
+ {id:'bike',icon:'🚴',name:'Ergométrica',min:30,c:'#36d9ff'},
+ {id:'run',icon:'🏃',name:'Esteira',min:30,c:'#8b5cf6'},
+ {id:'gym',icon:'🏋️',name:'Musculação',min:30,c:'#f05cff'}
+];
+let state=JSON.parse(localStorage.getItem(KEY)||'{}');
+let filter='all';
+
+const fmtDate=d=>new Intl.DateTimeFormat('pt-BR',{day:'2-digit',month:'2-digit'}).format(d);
+const fmtWeek=d=>new Intl.DateTimeFormat('pt-BR',{weekday:'long'}).format(d);
+const key=(d,w)=>d.toISOString().slice(0,10)+'_'+w.id;
+
+function dates(){
+ let out=[], d=new Date(START);
+ while(d<=END){out.push(new Date(d));d.setDate(d.getDate()+1)}
+ return out;
+}
+function monthLabel(d){
+ return new Intl.DateTimeFormat('pt-BR',{month:'long',year:'numeric'}).format(d)
+ .replace(/^./,x=>x.toUpperCase());
+}
+function isDone(d,w){return !!state[key(d,w)]}
+function toggle(d,w){
+ const k=key(d,w);
+ state[k]=!state[k];
+ const overlay=document.getElementById('saveOverlay');
+ overlay.classList.add('show');
+ overlay.setAttribute('aria-hidden','false');
+
+ // Pequeno atraso intencional para que o feedback de salvamento seja perceptível no mobile.
+ window.setTimeout(()=>{
+   try{
+     localStorage.setItem(KEY,JSON.stringify(state));
+     render();
+   }finally{
+     window.setTimeout(()=>{
+       overlay.classList.remove('show');
+       overlay.setAttribute('aria-hidden','true');
+     },260);
+   }
+ },180);
+}
+function dayDone(d){return workouts.filter(w=>isDone(d,w)).length}
+function currentStreak(ds){
+ let s=0;
+ for(let i=ds.length-1;i>=0;i--){if(dayDone(ds[i])===3)s++;else break}
+ return s;
+}
+function render(){
+ const ds=dates(), cal=document.getElementById('calendar'); cal.innerHTML='';
+ let last='';
+ ds.forEach(d=>{
+   const complete=dayDone(d);
+   const visible=filter==='all'||(filter==='done'&&complete===3)||(filter==='pending'&&complete<3);
+   if(!visible)return;
+   const ml=monthLabel(d);
+   if(ml!==last){
+     const m=document.createElement('div');m.className='month';
+     m.innerHTML=`<h2>${ml}</h2><span>${ds.filter(x=>monthLabel(x)===ml).length} dias</span>`;
+     cal.appendChild(m);last=ml;
+   }
+   const article=document.createElement('article');article.className='day';
+   article.innerHTML=`
+    <div class="dayhead">
+      <div class="daytitle">
+        <div class="datebox">${d.getDate()}</div>
+        <div><b>${fmtWeek(d)}</b><small>${fmtDate(d)}</small></div>
+      </div>
+      <div class="daypct">${complete}/3</div>
+    </div>
+    <div class="exercises"></div>`;
+   const grid=article.querySelector('.exercises');
+   workouts.forEach(w=>{
+     const b=document.createElement('button'); b.className='blob'+(isDone(d,w)?' done':'');
+     b.style.setProperty('--c',w.c);
+     b.innerHTML=`<span class="icon">${w.icon}</span><b>${w.name}</b><small>${w.min} min</small>`;
+     b.setAttribute('aria-label',`${w.name}, ${w.min} minutos`);
+     b.onclick=()=>toggle(d,w);
+     grid.appendChild(b);
+   });
+   cal.appendChild(article);
+ });
+ if(!cal.children.length) cal.innerHTML='<div class="empty">Nenhum dia corresponde a este filtro.</div>';
+ updateStats(ds);
+}
+function updateStats(ds){
+ const total=ds.length*3, done=Object.values(state).filter(Boolean).length;
+ const days=ds.filter(d=>dayDone(d)===3).length;
+ const mins=Object.keys(state).filter(k=>state[k]).length*30;
+ const pct=Math.min(100,done/total*100);
+ document.getElementById('bar').style.width=pct+'%';
+ document.getElementById('doneText').textContent=`${done} de ${total} sessões`;
+ document.getElementById('kgText').textContent=(12.25*pct/100).toFixed(2).replace('.',',')+' kg';
+ document.getElementById('daysDone').textContent=days;
+ document.getElementById('minutes').textContent=mins;
+ document.getElementById('streak').textContent=currentStreak(ds);
+}
+document.querySelectorAll('.pill').forEach(p=>p.onclick=()=>{
+ document.querySelectorAll('.pill').forEach(x=>x.classList.remove('active'));
+ p.classList.add('active');filter=p.dataset.filter;render();
+});
+render();
+</script>
+</body>
+</html>
